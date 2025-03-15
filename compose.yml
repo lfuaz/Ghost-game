@@ -12,9 +12,9 @@ services:
     labels:
       # HTTP configuration
       - "traefik.enable=true"
-      - "traefik.http.routers.mastermind.rule=Host(`ghostgame.florianurena.ovh`)"
-      - "traefik.http.routers.mastermind.entrypoints=websecure"
-      - "traefik.http.routers.mastermind.tls.certresolver=ovhdns"
+      - "traefik.http.routers.ghostgame.rule=Host(`ghostgame.florianurena.ovh`)"
+      - "traefik.http.routers.ghostgame.entrypoints=websecure"
+      - "traefik.http.routers.ghostgame.tls.certresolver=ovhdns"
 
 networks:
   traefik-net:
