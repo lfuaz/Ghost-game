@@ -1,0 +1,20 @@
+services:
+  app:
+    container_name: ghost_game
+    build: .
+    environment:
+      PORT: 3000
+    # ports:
+    #   - "3000:3000"
+    networks:
+      - traefik-net
+    labels:
+      # HTTP configuration
+      - "traefik.enable=true"
+      - "traefik.http.routers.mastermind.rule=Host(`ghostgame.florianurena.ovh`)"
+      - "traefik.http.routers.mastermind.entrypoints=websecure"
+      - "traefik.http.routers.mastermind.tls.certresolver=ovhdns"
+
+networks:
+  traefik-net:
+    external: true

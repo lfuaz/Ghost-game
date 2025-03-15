@@ -1,0 +1,163 @@
+// Forward animations first
+@forward "./animations.scss";
+
+@use "sass:color";
+@use "main.scss" as main;
+
+.game-room {
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  animation: fadeIn 0.5s ease-in-out;
+
+  h2,
+  h3,
+  h4 {
+    margin-bottom: 10px;
+  }
+
+  input {
+    padding: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+  }
+
+  button {
+    padding: 10px 15px;
+    background-color: #2ecc71;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  button:hover {
+    background-color: #27ae60;
+  }
+
+  .game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    .room-info {
+      text-align: left;
+    }
+
+    .leave-room {
+      background-color: main.$invalid-color;
+
+      &:hover {
+        background-color: color.scale(main.$invalid-color, $lightness: -10%);
+      }
+    }
+  }
+
+  .current-word-display {
+    background-color: rgba(main.$surface-color, 0.7);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+    h3 {
+      margin-top: 0;
+      color: main.$text-secondary;
+      font-size: 1rem;
+    }
+
+    .word {
+      font-size: 3rem;
+      letter-spacing: 3px;
+      font-weight: bold;
+      margin: 1rem 0;
+      text-shadow: 0 0 10px rgba(main.$accent-color, 0.5);
+      min-height: 70px;
+
+      &.valid {
+        color: main.$valid-color;
+      }
+
+      &.invalid {
+        color: main.$text-color;
+      }
+    }
+
+    .word-validity {
+      padding: 5px 15px;
+      border-radius: 20px;
+      display: inline-block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 1rem;
+
+      &.valid {
+        background-color: rgba(main.$valid-color, 0.2);
+        color: main.$valid-color;
+      }
+
+      &.invalid {
+        background-color: rgba(main.$invalid-color, 0.2);
+        color: main.$invalid-color;
+      }
+
+      &.unchecked {
+        background-color: rgba(main.$text-secondary, 0.2);
+        color: main.$text-secondary;
+      }
+    }
+  }
+
+  .player-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(30, 30, 30, 0.7);
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: background-color 0.3s;
+
+    &.current-turn {
+      background-color: rgba(123, 31, 162, 0.3);
+      border-left: 4px solid #7b1fa2;
+    }
+
+    .player-info {
+      display: flex;
+      flex-direction: column;
+
+      .player-name {
+        font-weight: 600;
+      }
+
+      .turn-status {
+        font-size: 0.8rem;
+        color: #e91e63;
+      }
+    }
+
+    .ready-status {
+      .ready-badge {
+        background-color: #4caf50;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .not-ready-badge {
+        background-color: #f44336;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+    }
+  }
+}

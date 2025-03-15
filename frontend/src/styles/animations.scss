@@ -1,0 +1,67 @@
+/* Toast animations */
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Victory animations */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.winner-message {
+  animation: pulse 1s infinite;
+  font-weight: bold;
+  color: #4caf50;
+}
+
+.loser-message {
+  color: #f44336;
+}
+
+/* Toast styling */
+.toast {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.toast.error {
+  background-color: #f44336;
+}
+
+.toast.success {
+  background-color: #4caf50;
+}
+
+.toast.info {
+  background-color: #2196f3;
+}

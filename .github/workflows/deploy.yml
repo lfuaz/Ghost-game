@@ -1,0 +1,17 @@
+name: Deployement
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Build and deploy
+        run: |
+          cd ${{ github.workspace }}
+          docker compose build --no-cache && docker compose up -d

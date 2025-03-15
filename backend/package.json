@@ -1,0 +1,21 @@
+{
+  "name": "socket-io-chat",
+  "version": "1.0.0",
+  "description": "A simple chat application using Socket.io",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon"
+  },
+  "dependencies": {
+    "axios": "^1.8.3",
+    "express": "^4.21.2",
+    "morgan": "^1.10.0",
+    "node-cache": "^5.1.2",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.7",
+    "nodemon": "^3.1.9"
+  }
+}
