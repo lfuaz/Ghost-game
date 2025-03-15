@@ -2,7 +2,7 @@ FROM oven/bun:1 as frontend-builder
 
 WORKDIR /build/frontend
 COPY ./frontend/package.json ./frontend/bun.lock ./
-RUN bun install --production
+RUN bun install
 COPY ./frontend .
 RUN bun run build
 
