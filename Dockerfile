@@ -8,6 +8,8 @@ RUN bun run build
 
 FROM oven/bun:alpine
 
+ENV NODE_ENV=production
+
 WORKDIR /app
 # Backend setup
 COPY ./backend/package.json ./backend/bun.lock ./
