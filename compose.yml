@@ -4,7 +4,7 @@ services:
     build: .
     environment:
       PORT: 3000
-      TEXTGEARS_API_KEY: ${{ secrets.TEXTGEARS_API_KEY }}
+      TEXTGEARS_API_KEY: ${TEXTGEARS_API_KEY}
     # ports:
     #   - "3000:3000"
     networks:

@@ -12,6 +12,8 @@ jobs:
         uses: actions/checkout@v4
         
       - name: Build and deploy
+        env:
+          TEXTGEARS_API_KEY: ${{ secrets.TEXTGEARS_API_KEY }}
         run: |
           cd ${{ github.workspace }}
           docker compose build --no-cache && docker compose up -d
