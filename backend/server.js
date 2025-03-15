@@ -1,4 +1,10 @@
-require("dotenv").config(); // Load environment variables
+// Only load .env file in development environment
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+  console.log("Loading environment from .env file (development mode)");
+} else {
+  console.log("Running in production mode");
+}
 
 const express = require("express");
 const http = require("http");
@@ -13,8 +19,16 @@ const server = http.createServer(app);
 const io = new Server(server);
 const cache = new NodeCache({ stdTTL: 86400 }); // Cache with a 24-hour TTL
 
+// Get API key and port from process.env, with fallback for API key
 const TEXTGEARS_API_KEY = process.env.TEXTGEARS_API_KEY; // API key from environment variables
 const port = process.env.PORT || 3000; // Port from environment variables or default to 3000
+
+// Add API key validation warning
+if (!TEXTGEARS_API_KEY) {
+  console.warn(
+    "WARNING: TEXTGEARS_API_KEY environment variable not set. Word validation may not work correctly."
+  );
+}
 
 // Middleware to serve static files
 app.use(express.static(path.join(__dirname, "dist")));
